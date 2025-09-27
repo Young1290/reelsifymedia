@@ -33,3 +33,9 @@
   to = "https://reelsify.co/:splat"
   status = 301
   force = true
+
+# SPA fallback for client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

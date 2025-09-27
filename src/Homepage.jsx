@@ -80,28 +80,44 @@ export default function ReelsifyKLEventLanding() {
     <main className="min-h-screen bg-white text-slate-900">
       {/* SEO JSON-LD */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          name: "Reelsify Media — KL Event Filming",
-          image: ["https://reelsifymedia.com/og.jpg"],
-          url: "https://reelsifymedia.com",
-          telephone: "0127183499", // TODO: replace with real number
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: "Kuala Lumpur",
-            addressRegion: "WP Kuala Lumpur",
-            addressCountry: "MY"
+        __html: JSON.stringify([
+          {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            name: "Reelsify Media — KL Event Filming",
+            image: ["https://reelsifymedia.com/og.jpg"],
+            url: "https://reelsify.co",
+            telephone: "0127183499",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Kuala Lumpur",
+              addressRegion: "WP Kuala Lumpur",
+              addressCountry: "MY"
+            },
+            areaServed: ["Kuala Lumpur", "PJ", "Selangor"],
+            sameAs: [
+              "https://www.instagram.com/reelsifymedia/",
+              "https://www.facebook.com/p/Reelsify-Media-61552832105598/",
+              "https://my.linkedin.com/company/reelsify-media"
+            ],
+            makesOffer: packages.map(p => ({"@type": "Offer", name: p.tier, price: p.price})),
+            priceRange: "RM RM2,500–RM3,500"
           },
-          areaServed: ["Kuala Lumpur", "PJ", "Selangor"],
-          sameAs: [
-            "https://www.instagram.com/reelsifymedia/",
-            "https://www.facebook.com/p/Reelsify-Media-61552832105598/",
-            "https://my.linkedin.com/company/reelsify-media"
-          ],
-          makesOffer: packages.map(p => ({"@type": "Offer", name: p.tier, price: p.price})),
-          priceRange: "RM RM2,800–RM5,500"
-        })
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Reelsify Media",
+            url: "https://reelsify.co",
+            potentialAction: {
+              "@type": "SearchAction",
+              target: {
+                "@type": "EntryPoint",
+                urlTemplate: "https://reelsify.co/?q={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            }
+          }
+        ])
       }}/>
 
       {/* Navbar */}
@@ -111,7 +127,7 @@ export default function ReelsifyKLEventLanding() {
             <Camera className="h-6 w-6" /> Reelsify Media
           </a>
           <div className="hidden md:flex items-center gap-8 text-sm">
-            <a href="#work" className="hover:text-slate-700">Work</a>
+            <a href="/portfolio" className="hover:text-slate-700">Work</a>
             <a href="#packages" className="hover:text-slate-700">Packages</a>
             <a href="#process" className="hover:text-slate-700">Process</a>
             <a href="#faq" className="hover:text-slate-700">FAQ</a>
@@ -152,7 +168,7 @@ export default function ReelsifyKLEventLanding() {
           </div>
           <div className="relative aspect-video rounded-3xl bg-slate-100 shadow-2xl overflow-hidden ring-1 ring-slate-200">
             {/* Replace with real showreel embed */}
-            <iframe className="w-full h-full" src="https://www.youtube.com/embed/fnrQ74wp6PU?rel=0&autoplay=1&mute=1&loop=1&playlist=fnrQ74wp6PU" title="Reelsify Event Showreel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+            <iframe className="w-full h-full" src="https://www.youtube.com/embed/fnrQ74wp6PU?rel=0&autoplay=1&mute=1&loop=1&playlist=fnrQ74wp6PU" title="Reelsify Event Showreel in Kuala Lumpur" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
           </div>
         </div>
       </section>
@@ -163,7 +179,7 @@ export default function ReelsifyKLEventLanding() {
           <p className="text-xs uppercase tracking-widest text-slate-500 mb-4">Trusted by</p>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6 items-center opacity-80">
             {logos.map(l => (
-              <img key={l.name} src={l.src} alt={l.name} className="h-8 md:h-10 object-contain mx-auto"/>
+              <img key={l.name} src={l.src} alt={`${l.name} logo`} loading="lazy" className="h-8 md:h-10 object-contain mx-auto"/>
             ))}
           </div>
         </div>
@@ -222,23 +238,23 @@ export default function ReelsifyKLEventLanding() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* YouTube embeds from client-provided links */}
             <div className="aspect-video rounded-2xl overflow-hidden ring-1 ring-slate-200 bg-slate-100">
-              <iframe className="w-full h-full" src="https://www.youtube.com/embed/fnrQ74wp6PU?rel=0" title="Event Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+              <iframe className="w-full h-full" src="https://www.youtube.com/embed/fnrQ74wp6PU?rel=0" title="Event videography in KL – highlight 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
             </div>
             <div className="aspect-video rounded-2xl overflow-hidden ring-1 ring-slate-200 bg-slate-100">
-              <iframe className="w-full h-full" src="https://www.youtube.com/embed/QRcsXgC1oW8?rel=0" title="Event Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+              <iframe className="w-full h-full" src="https://www.youtube.com/embed/QRcsXgC1oW8?rel=0" title="Event videography in KL – highlight 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
             </div>
             <div className="aspect-video rounded-2xl overflow-hidden ring-1 ring-slate-200 bg-slate-100">
-              <iframe className="w-full h-full" src="https://www.youtube.com/embed/9pPGWiHTKDQ?rel=0" title="Event Video 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+              <iframe className="w-full h-full" src="https://www.youtube.com/embed/9pPGWiHTKDQ?rel=0" title="Event videography in KL – highlight 3" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
             </div>
             {/* Additional placeholders */}
             <div className="aspect-video rounded-2xl bg-slate-100 overflow-hidden ring-1 ring-slate-200">
-              <img src="/images/portfolio/event-4.svg" alt="Event 4" className="w-full h-full object-cover"/>
+              <img src="/images/portfolio/event-4.svg" alt="Event videography in Kuala Lumpur portfolio image 4" loading="lazy" className="w-full h-full object-cover"/>
             </div>
             <div className="aspect-video rounded-2xl bg-slate-100 overflow-hidden ring-1 ring-slate-200">
-              <img src="/images/portfolio/event-5.svg" alt="Event 5" className="w-full h-full object-cover"/>
+              <img src="/images/portfolio/event-5.svg" alt="Event videography in Kuala Lumpur portfolio image 5" loading="lazy" className="w-full h-full object-cover"/>
             </div>
             <div className="aspect-video rounded-2xl bg-slate-100 overflow-hidden ring-1 ring-slate-200">
-              <img src="/images/portfolio/event-6.svg" alt="Event 6" className="w-full h-full object-cover"/>
+              <img src="/images/portfolio/event-6.svg" alt="Event videography in Kuala Lumpur portfolio image 6" loading="lazy" className="w-full h-full object-cover"/>
             </div>
           </div>
           <div className="mt-6"><a href="/portfolio" className="inline-flex items-center gap-2 text-slate-900 hover:underline">View full portfolio <ChevronRight className="h-4 w-4"/></a></div>
@@ -278,7 +294,7 @@ export default function ReelsifyKLEventLanding() {
             </ul>
           </div>
           <div className="aspect-video rounded-3xl bg-slate-100 overflow-hidden ring-1 ring-slate-200">
-            <img src="/images/behind-the-scenes.svg" alt="Behind the scenes" className="w-full h-full object-cover"/>
+            <img src="/images/behind-the-scenes.svg" alt="Behind the scenes of event filming in Kuala Lumpur" loading="lazy" className="w-full h-full object-cover"/>
           </div>
         </div>
       </section>
