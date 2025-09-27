@@ -1,0 +1,35 @@
+# Netlify configuration
+# Build is handled by Netlify UI: build command `npm run build`, publish `dist`
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Security headers
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Ensure HTML is not aggressively cached
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+# Redirect www to apex (Netlify usually handles, but keep explicit)
+[[redirects]]
+  from = "https://www.reelsify.co/*"
+  to = "https://reelsify.co/:splat"
+  status = 301
+  force = true
