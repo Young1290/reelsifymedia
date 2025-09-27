@@ -8,6 +8,7 @@ import Portfolio from './pages/Portfolio'
 import About from './pages/About'
 import Pricing from './pages/Pricing'
 import Blog from './pages/Blog'
+import KLEventVideographyChecklist from './pages/blog/KLEventVideographyChecklist'
 
 const router = createBrowserRouter([
   { path: '/', element: <Homepage /> },
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
   { path: '/about', element: <About /> },
   { path: '/pricing', element: <Pricing /> },
   { path: '/blog', element: <Blog /> },
+  { path: '/blog/kl-event-videography-checklist', element: <KLEventVideographyChecklist /> },
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

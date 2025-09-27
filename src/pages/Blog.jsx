@@ -6,7 +6,7 @@ export default function Blog() {
     {
       title: "Event Videography in KL: A Planning Checklist",
       excerpt: "A practical list to ensure smooth coverage: run-of-show, audio I/O, lighting, and more.",
-      url: "#",
+      url: "/blog/kl-event-videography-checklist",
     },
     {
       title: "How We Deliver 72h Event Highlights",
