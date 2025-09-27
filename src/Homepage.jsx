@@ -193,15 +193,15 @@ export default function ReelsifyKLEventLanding() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              {icon: <Camera className="h-6 w-6"/>, title: "Event Filming", desc: "Conference, Launch, Gala, Expo, Graduation, Concert, Roadshow"},
-              {icon: <Sparkles className="h-6 w-6"/>, title: "Shorts & Reels", desc: "15–45s vertical social edits delivered fast—even during the event"},
-              {icon: <Rocket className="h-6 w-6"/>, title: "Live & Multi-cam", desc: "Multi-cam switching, clean audio capture, stage coverage, audience engagement"},
+              {icon: <Camera className="h-6 w-6"/>, title: "Event Filming (KL)", desc: "Conference, Launch, Gala, Expo, Graduation, Concert, Roadshow", href: "/event-filming-kl"},
+              {icon: <Sparkles className="h-6 w-6"/>, title: "Event Photography (KL)", desc: "Speaker portraits, VIPs, group photos, candid coverage", href: "/event-photography-kl"},
+              {icon: <Rocket className="h-6 w-6"/>, title: "Drone Videography (KL)", desc: "Aerial establishing shots and property visuals (permits subject to venue)", href: "/drone-videography-kl"},
             ].map((s) => (
-              <div key={s.title} className="rounded-2xl p-6 border border-slate-200 shadow-sm">
+              <a key={s.title} href={s.href} className="rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                 <div className="rounded-xl w-10 h-10 grid place-items-center bg-slate-900 text-white mb-4">{s.icon}</div>
                 <h3 className="font-semibold text-lg">{s.title}</h3>
                 <p className="text-slate-600 mt-2">{s.desc}</p>
-              </div>
+              </a>
             ))}
           </div>
         </div>
