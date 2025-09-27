@@ -130,6 +130,9 @@ export default function ReelsifyKLEventLanding() {
             <a href="/portfolio" className="hover:text-slate-700">Work</a>
             <a href="#packages" className="hover:text-slate-700">Packages</a>
             <a href="#process" className="hover:text-slate-700">Process</a>
+            <a href="/pricing" className="hover:text-slate-700">Pricing</a>
+            <a href="/about" className="hover:text-slate-700">About</a>
+            <a href="/blog" className="hover:text-slate-700">Blog</a>
             <a href="#faq" className="hover:text-slate-700">FAQ</a>
             <a href="#contact" className="hover:text-slate-700">Contact</a>
             <a href="https://api.whatsapp.com/send/?phone=60127183499&text&type=phone_number&app_absent=0" className="inline-flex items-center gap-2 rounded-2xl px-4 py-2 bg-slate-900 text-white hover:bg-slate-800">
@@ -376,8 +379,8 @@ export default function ReelsifyKLEventLanding() {
         <div className="mx-auto max-w-7xl px-4 text-sm text-slate-500 flex flex-col md:flex-row items-center justify-between gap-4">
           <div>© {new Date().getFullYear()} Reelsify Media. All rights reserved.</div>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-slate-700">Privacy</a>
-            <a href="#" className="hover:text-slate-700">Terms</a>
+            <a href="/about" className="hover:text-slate-700">Privacy</a>
+            <a href="/about" className="hover:text-slate-700">Terms</a>
           </div>
         </div>
       </footer>

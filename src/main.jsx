@@ -5,11 +5,17 @@ import Homepage from './Homepage'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import EventFilming from './pages/EventFilming'
 import Portfolio from './pages/Portfolio'
+import About from './pages/About'
+import Pricing from './pages/Pricing'
+import Blog from './pages/Blog'
 
 const router = createBrowserRouter([
   { path: '/', element: <Homepage /> },
   { path: '/services/event-filming', element: <EventFilming /> },
   { path: '/portfolio', element: <Portfolio /> },
+  { path: '/about', element: <About /> },
+  { path: '/pricing', element: <Pricing /> },
+  { path: '/blog', element: <Blog /> },
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
