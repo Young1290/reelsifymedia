@@ -76,6 +76,13 @@ export default function ReelsifyKLEventLanding() {
     },
   ];
 
+  // GA4 event helper
+  const trackEvent = (action, params) => {
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", action, params);
+    }
+  };
+
   return (
     <main className="min-h-screen bg-white text-slate-900">
       {/* SEO JSON-LD */}
@@ -135,7 +142,11 @@ export default function ReelsifyKLEventLanding() {
             <a href="/blog" className="hover:text-slate-700">Blog</a>
             <a href="#faq" className="hover:text-slate-700">FAQ</a>
             <a href="#contact" className="hover:text-slate-700">Contact</a>
-            <a href="https://api.whatsapp.com/send/?phone=60127183499&text&type=phone_number&app_absent=0" className="inline-flex items-center gap-2 rounded-2xl px-4 py-2 bg-slate-900 text-white hover:bg-slate-800">
+            <a
+              href="https://api.whatsapp.com/send/?phone=60127183499&text&type=phone_number&app_absent=0"
+              className="inline-flex items-center gap-2 rounded-2xl px-4 py-2 bg-slate-900 text-white hover:bg-slate-800"
+              onClick={() => trackEvent("whatsapp_click", { event_category: "engagement", event_label: "WhatsApp Contact (Nav)" })}
+            >
               <Phone className="h-4 w-4"/> WhatsApp Us
             </a>
           </div>
@@ -156,7 +167,11 @@ export default function ReelsifyKLEventLanding() {
               We turn your event into high-performing short-form content and highlight films—ready to post within the week. From corporate launches to conferences and galas—we’ve got you covered.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="https://api.whatsapp.com/send/?phone=60127183499&text&type=phone_number&app_absent=0" className="inline-flex items-center gap-2 rounded-2xl px-5 py-3 bg-slate-900 text-white hover:bg-slate-800">
+              <a
+                href="https://api.whatsapp.com/send/?phone=60127183499&text&type=phone_number&app_absent=0"
+                className="inline-flex items-center gap-2 rounded-2xl px-5 py-3 bg-slate-900 text-white hover:bg-slate-800"
+                onClick={() => trackEvent("whatsapp_click", { event_category: "engagement", event_label: "WhatsApp Contact (Hero)" })}
+              >
                 <Phone className="h-4 w-4"/> Get Instant Quote
               </a>
               <a href="#contact" className="inline-flex items-center gap-2 rounded-2xl px-5 py-3 border border-slate-300 hover:bg-slate-50">
@@ -342,8 +357,20 @@ export default function ReelsifyKLEventLanding() {
             <h2 className="text-2xl md:text-3xl font-bold">Let’s lock your event date</h2>
             <p className="mt-2 text-slate-300">Tell us about your event and the deliverables you need. We’ll reply within the day.</p>
             <div className="mt-6 space-y-3 text-slate-200">
-              <div className="flex items-center gap-2"><Phone className="h-4 w-4"/> 0127183499</div>
-              <div className="flex items-center gap-2"><Mail className="h-4 w-4"/> gin000103@gmail.com</div>
+              <a
+                href="tel:0127183499"
+                className="flex items-center gap-2 hover:underline"
+                onClick={() => trackEvent("phone_click", { event_category: "engagement", event_label: "Phone Call" })}
+              >
+                <Phone className="h-4 w-4"/> 012-718 3499
+              </a>
+              <a
+                href="mailto:gin000103@gmail.com"
+                className="flex items-center gap-2 hover:underline"
+                onClick={() => trackEvent("email_click", { event_category: "engagement", event_label: "Email Contact" })}
+              >
+                <Mail className="h-4 w-4"/> gin000103@gmail.com
+              </a>
               <div className="flex items-center gap-2"><MapPin className="h-4 w-4"/> Kuala Lumpur • PJ • Selangor</div>
             </div>
             <div className="mt-6 flex gap-4">
@@ -353,7 +380,14 @@ export default function ReelsifyKLEventLanding() {
             </div>
           </div>
 
-          <form className="bg-white text-slate-900 rounded-2xl p-6 shadow-2xl">
+          <form
+            className="bg-white text-slate-900 rounded-2xl p-6 shadow-2xl"
+            onSubmit={(e) => {
+              e.preventDefault();
+              trackEvent("form_submit", { event_category: "lead", event_label: "Contact Form" });
+              // TODO: hook up to backend or form service
+            }}
+          >
             <div className="grid md:grid-cols-2 gap-4">
               <label className="flex flex-col gap-1 text-sm">Name<input className="border rounded-xl px-3 py-2" placeholder="Your name"/></label>
               <label className="flex flex-col gap-1 text-sm">Email<input className="border rounded-xl px-3 py-2" placeholder="you@email.com"/></label>
@@ -368,7 +402,7 @@ export default function ReelsifyKLEventLanding() {
             </div>
             <label className="flex flex-col gap-1 text-sm mt-4">Deliverables<select className="border rounded-xl px-3 py-2"><option>Highlight Film</option><option>Highlight + 1 Reel</option><option>Highlight + 3 Reels</option><option>Raw Footage Add-on</option></select></label>
             <label className="flex flex-col gap-1 text-sm mt-4">Notes<textarea className="border rounded-xl px-3 py-2 min-h-[120px]" placeholder="Tell us about your program, run-of-show, must-capture moments…"/></label>
-            <button type="button" className="mt-6 w-full rounded-2xl bg-slate-900 text-white py-3 hover:bg-slate-800">Send Request</button>
+            <button type="submit" className="mt-6 w-full rounded-2xl bg-slate-900 text-white py-3 hover:bg-slate-800">Send Request</button>
             <p className="text-xs text-slate-500 mt-3">By submitting, you agree to be contacted about your inquiry. We reply within one business day.</p>
           </form>
         </div>
@@ -386,7 +420,11 @@ export default function ReelsifyKLEventLanding() {
       </footer>
 
       {/* Sticky mobile CTA */}
-      <a href="https://api.whatsapp.com/send/?phone=60127183499&text&type=phone_number&app_absent=0" className="fixed md:hidden bottom-4 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 rounded-full px-5 py-3 bg-slate-900 text-white shadow-2xl">
+      <a
+        href="https://api.whatsapp.com/send/?phone=60127183499&text&type=phone_number&app_absent=0"
+        className="fixed md:hidden bottom-4 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 rounded-full px-5 py-3 bg-slate-900 text-white shadow-2xl"
+        onClick={() => trackEvent("whatsapp_click", { event_category: "engagement", event_label: "WhatsApp Contact (Mobile Sticky)" })}
+      >
         <Phone className="h-4 w-4"/> WhatsApp for Quote
       </a>
     </main>
