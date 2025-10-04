@@ -8,10 +8,10 @@ import { Check, Camera, CalendarCheck2, Rocket, Shield, Sparkles, Timer, Phone, 
 
 export default function ReelsifyKLEventLanding() {
   const logos = [
-    { name: "ILN", src: "/images/iln.svg" },
-    { name: "MiTEC", src: "/images/mitec.svg" },
-    { name: "Muzium Negara", src: "/images/muzium-negara.svg" },
-    { name: "MoSTI", src: "/images/mosti.svg" },
+    { name: "ILN", src: "/images/ILN.png" },
+    { name: "MiTEC", src: "/images/mitec.png" },
+    { name: "Muzium Negara", src: "/images/muzium-negara.png" },
+    { name: "MoSTI", src: "/images/mosti.png" },
   ];
 
   const packages = [
@@ -82,6 +82,22 @@ export default function ReelsifyKLEventLanding() {
       window.gtag("event", action, params);
     }
   };
+
+  // Load Instagram embed script
+  React.useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://www.instagram.com/embed.js';
+    script.async = true;
+    document.body.appendChild(script);
+    
+    return () => {
+      // Cleanup script on unmount
+      const existingScript = document.querySelector('script[src="https://www.instagram.com/embed.js"]');
+      if (existingScript) {
+        document.body.removeChild(existingScript);
+      }
+    };
+  }, []);
 
   return (
     <main className="min-h-screen bg-white text-slate-900">
@@ -197,7 +213,7 @@ export default function ReelsifyKLEventLanding() {
           <p className="text-xs uppercase tracking-widest text-slate-500 mb-4">Trusted by</p>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6 items-center opacity-80">
             {logos.map(l => (
-              <img key={l.name} src={l.src} alt={`${l.name} logo`} loading="lazy" className="h-8 md:h-10 object-contain mx-auto"/>
+              <img key={l.name} src={l.src} alt={`${l.name} logo`} loading="lazy" className="h-12 md:h-16 object-contain mx-auto"/>
             ))}
           </div>
         </div>
@@ -264,15 +280,21 @@ export default function ReelsifyKLEventLanding() {
             <div className="aspect-video rounded-2xl overflow-hidden ring-1 ring-slate-200 bg-slate-100">
               <iframe className="w-full h-full" src="https://www.youtube.com/embed/9pPGWiHTKDQ?rel=0" title="Event videography in KL – highlight 3" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
             </div>
-            {/* Additional placeholders */}
-            <div className="aspect-video rounded-2xl bg-slate-100 overflow-hidden ring-1 ring-slate-200">
-              <img src="/images/portfolio/event-4.svg" alt="Event videography in Kuala Lumpur portfolio image 4" loading="lazy" className="w-full h-full object-cover"/>
+            {/* Additional YouTube embeds */}
+            <div className="aspect-video rounded-2xl overflow-hidden ring-1 ring-slate-200 bg-slate-100">
+              <iframe className="w-full h-full" src="https://www.youtube.com/embed/5Yxb5Srw4Ms?rel=0" title="Event videography in KL – highlight 4" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+            </div>
+            <div className="aspect-video rounded-2xl overflow-hidden ring-1 ring-slate-200 bg-slate-100">
+              <iframe className="w-full h-full" src="https://www.youtube.com/embed/Y9WCCfXQwh4?rel=0" title="Event videography in KL – highlight 5" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
             </div>
             <div className="aspect-video rounded-2xl bg-slate-100 overflow-hidden ring-1 ring-slate-200">
-              <img src="/images/portfolio/event-5.svg" alt="Event videography in Kuala Lumpur portfolio image 5" loading="lazy" className="w-full h-full object-cover"/>
-            </div>
-            <div className="aspect-video rounded-2xl bg-slate-100 overflow-hidden ring-1 ring-slate-200">
-              <img src="/images/portfolio/event-6.svg" alt="Event videography in Kuala Lumpur portfolio image 6" loading="lazy" className="w-full h-full object-cover"/>
+              <blockquote className="instagram-media w-full h-full" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/C_P73LhylLP/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" data-instgrm-version="14">
+                <div className="flex items-center justify-center h-full">
+                  <a href="https://www.instagram.com/reel/C_P73LhylLP/" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-slate-900">
+                    View Instagram Reel
+                  </a>
+                </div>
+              </blockquote>
             </div>
           </div>
           <div className="mt-6"><a href="/portfolio" className="inline-flex items-center gap-2 text-slate-900 hover:underline">View full portfolio <ChevronRight className="h-4 w-4"/></a></div>
@@ -312,25 +334,11 @@ export default function ReelsifyKLEventLanding() {
             </ul>
           </div>
           <div className="aspect-video rounded-3xl bg-slate-100 overflow-hidden ring-1 ring-slate-200">
-            <img src="/images/behind-the-scenes.svg" alt="Behind the scenes of event filming in Kuala Lumpur" loading="lazy" className="w-full h-full object-cover"/>
+            <img src="/images/BTS.jpg" alt="Behind the scenes of event filming in Kuala Lumpur" loading="lazy" className="w-full h-full object-cover"/>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-16 md:py-24 bg-slate-50">
-        <div className="mx-auto max-w-7xl px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8">Client Love</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {["Their same-day teaser helped us post during the event!","Super professional with audio—our panel sounded great.","Fast, friendly, and the reels performed really well."].map((t, i)=> (
-              <div key={i} className="rounded-2xl p-6 border border-slate-200 bg-white">
-                <p className="text-slate-700">“{t}”</p>
-                <div className="mt-4 text-sm text-slate-500">— Client {i+1}, Kuala Lumpur</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* FAQ */}
       <section id="faq" className="py-16 md:py-24">
