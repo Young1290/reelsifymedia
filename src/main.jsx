@@ -9,6 +9,7 @@ import About from './pages/About'
 import Pricing from './pages/Pricing'
 import Blog from './pages/Blog'
 import KLEventVideographyChecklist from './pages/blog/KLEventVideographyChecklist'
+import GovernmentEventFilming from './pages/blog/GovernmentEventFilming'
 import EventFilmingKL from './pages/services/EventFilmingKL'
 import EventPhotographyKL from './pages/services/EventPhotographyKL'
 import DroneVideographyKL from './pages/services/DroneVideographyKL'
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
   { path: '/about', element: <About /> },
   { path: '/pricing', element: <Pricing /> },
   { path: '/blog', element: <Blog /> },
+  { path: '/blog/government-event-filming', element: <GovernmentEventFilming /> },
   { path: '/blog/kl-event-videography-checklist', element: <KLEventVideographyChecklist /> },
   { path: '/event-filming-kl', element: <EventFilmingKL /> },
   { path: '/event-photography-kl', element: <EventPhotographyKL /> },

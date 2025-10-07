@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 export default function Blog() {
   const posts = [
     {
+      title: "Capturing Malaysia's Stories Together: Professional Government Event Filming",
+      excerpt: "How we work with Malaysian government ministries and agencies to showcase the nation's beauty and progress through professional media production.",
+      url: "/blog/government-event-filming",
+    },
+    {
       title: "Event Videography in KL: A Planning Checklist",
       excerpt: "A practical list to ensure smooth coverage: run-of-show, audio I/O, lighting, and more.",
       url: "/blog/kl-event-videography-checklist",
